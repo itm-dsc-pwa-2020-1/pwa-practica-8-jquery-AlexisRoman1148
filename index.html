@@ -113,6 +113,13 @@
                });
             });
         </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#bcargar").click(function(){
+                    $("#cargar").load("asd.txt");
+                });
+            });
+        </script>
     </head>
     <body>
         <div class="wrapper">
@@ -207,6 +214,11 @@
                 </div>
             </div>
             <div class="tres">
+                <button id="bcargar">
+                    cargar txt
+                </button>
+                <div id="cargar">
+                </div>
                 <ul id="nav">
                     <li>
                         <a href="uno.html">

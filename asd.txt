@@ -1,0 +1,1 @@
+ESte es el contenido de un archivo txt que esta dentro de la carpeta donde se encuentra el index.html
