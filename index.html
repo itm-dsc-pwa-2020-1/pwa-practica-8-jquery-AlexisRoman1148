@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            EJEMPLO DE JQUERY
+        </title>
+        <link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet"/>
+        <script src="jquery-3.4.1.min.js" type="text/javascript">
+        </script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
+        </script>
+        <link href="bonito.css" rel="stylesheet" type="text/css"/>
+        <script>
+            $(document).ready(inicio)
+            function inicio(){
+                $("#aceptar").on("click", mensaje);
+            }
+
+            function mensaje(){
+                alert("Hola Crayola!!");
+            }
+        </script>
+        <script>
+            var timeout    = 500;
+            var closetimer = 0;
+            var ddmenuitem = 0;
+
+            function jsddm_open()
+            {  jsddm_canceltimer();
+               jsddm_close();
+               ddmenuitem = $(this).find('ul').css('visibility', 'visible');}
+
+            function jsddm_close()
+            {  if(ddmenuitem) ddmenuitem.css('visibility', 'hidden');}
+
+            function jsddm_timer()
+            {  closetimer = window.setTimeout(jsddm_close, timeout);}
+
+            function jsddm_canceltimer()
+            {  if(closetimer)
+               {  window.clearTimeout(closetimer);
+                  closetimer = null;}}
+
+            $(document).ready(function()
+            {  $('#jsddm > li').bind('mouseover', jsddm_open)
+               $('#jsddm > li').bind('mouseout',  jsddm_timer)});
+
+            document.onclick = jsddm_close;
+        </script>
+        <script>
+            $(document).ready(inicio)
+            function inicio(){
+                $("#peticion").on("click", peticion);
+            }
+
+            function peticion(){
+               $.ajax({
+                    url : 'recibe-parametros.php',
+                    type: "POST",
+                    data :{nombre: "Alexis", edad: 21}
+                    })
+                    .done(function(data) {
+                         $("#destino").html(data);
+                    })
+                    .fail(function(data) {
+                        alert( "error" );
+                    })
+                       
+            }
+        </script>
+        <script>
+            $(document).ready(function(){
+                $("#transs").click(function(){
+                    var div = $("#trans");
+                    div.animate({height: '300px', opacity: '0.4'}, "slow");
+                    div.animate({width: '300px', opacity: '0.8'}, "slow");
+                    div.animate({height: '100px', opacity: '0.4'}, "slow");
+                    div.animate({width: '100px', opacity: '0.8'}, "slow");
+                    div.animate({height: '300px', opacity: '0.4'}, "slow");
+                    div.animate({width: '300px', opacity: '0.8'}, "slow");
+                    div.animate({height: '100px', opacity: '0.4'}, "slow");
+                    div.animate({width: '100px', opacity: '0.8'}, "slow");
+                  
+                });
+            });
+        </script>
+        <script>
+            $( function() {
+            var handle = $( "#custom-handle" );
+            $( "#slider" ).slider({
+              create: function() {
+                handle.text( $( this ).slider( "value" ) );
+              },
+              slide: function( event, ui ) {
+                handle.text( ui.value );
+              }
+            });
+          } );
+        </script>
+        <script>
+            $( function() {
+            $( "#dialog" ).dialog();
+          } );
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+               $("#nav a").each(function(){
+                  var href = $(this).attr("href");
+                  $(this).attr({ href: "#"});
+                  $(this).click(function(){
+                     $("#show").load(href);
+                  });
+               });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="titulo">
+                <h1>
+                    EJEMPLO DE JQUERY
+                </h1>
+            </div>
+            <div class="uno">
+                <h2>
+                    Menu con botones
+                </h2>
+                <ul id="jsddm">
+                    <li>
+                        <a href="#">
+                            Elemento1
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    Elemento1.1
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Elemento1.2
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Elemento1.3
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            elemento2
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    Elemento2.1
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Elemento2.2
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Elemento2.3
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    elemento2.4
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    elemento2.5
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Elemento3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Elemento4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            elemento5
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="dos">
+                <h2>
+                    Slider
+                </h2>
+                <div id="slider">
+                    <div class="ui-slider-handle" id="custom-handle">
+                    </div>
+                </div>
+            </div>
+            <div class="tres">
+                <ul id="nav">
+                    <li>
+                        <a href="uno.html">
+                            Enlace Uno
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dos.html">
+                            Enlace Dos
+                        </a>
+                    </li>
+                </ul>
+                <div id="show">
+                </div>
+            </div>
+            <div class="cuatro">
+                <h2>
+                    Ajax
+                </h2>
+                <button id="peticion">
+                    picale
+                </button>
+                <br>
+                    <div id="destino">
+                    </div>
+                </br>
+            </div>
+            <div class="cinco">
+                <button id="transs">
+                    Start Animation
+                </button>
+                <div id="trans" style="background:#98bf21;height:100px;width:100px; ">
+                </div>
+            </div>
+            <div class="seis">
+                <div id="dialog" title="Basic dialog">
+                    <p>
+                        This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.
+                    </p>
+                </div>
+            </div>
+            <div align="center" class="copy">
+                <p>
+                    Alexis Giovanni Roman Valdovinos
+                </p>
+                <p>
+                    Pagina Registrada
+                </p>
+                2020 - 2020 © alexis.com
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,97 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+    grid-auto-rows: minmax(100px, auto);
+    align-items: stretch;
+}
+.wrapper2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+    grid-auto-rows: minmax(100px, auto);
+    align-items: stretch;
+    grid-column: 1/7;
+}
+.wrapper2 div {
+    background: #ecf0f1;
+    padding: 1em;
+}
+.titulo {
+    grid-column: 1/3;
+}
+.uno {
+    grid-column: 1/2;
+}
+.dos {
+    grid-column: 2/3
+}
+.tres {
+    grid-column: 1/2;
+}
+.cuatro {
+    grid-column: 2/3;
+}
+.cinco {
+    grid-column: 1/2;
+}
+.seis {
+    grid-column: 2/3;
+}
+.copy {
+    grid-column: 1/3;
+}
+.wrapper div {
+    background: #ecf0f1;
+    padding: 1em;
+}
+.cuatro button {
+    display: block;
+    background: #20548E;
+    padding: 5px 12px;
+    text-decoration: none;
+    border-right: 1px solid white;
+    width: 70px;
+    color: #EAFFED;
+    white-space: nowrap
+}
+#jsddm {
+    margin: 0;
+    padding: 0
+}
+#jsddm li {
+    float: left;
+    list-style: none;
+    font: 12px Tahoma, Arial
+}
+#jsddm li a {
+    display: block;
+    background: #20548E;
+    padding: 5px 12px;
+    text-decoration: none;
+    border-right: 1px solid white;
+    width: 70px;
+    color: #EAFFED;
+    white-space: nowrap
+}
+#jsddm li a:hover {
+    background: #1A4473
+}
+#jsddm li ul {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    visibility: hidden;
+    border-top: 1px solid white
+}
+#jsddm li ul li {
+    float: none;
+    display: inline
+}
+#jsddm li ul li a {
+    width: auto;
+    background: #9F1B1B
+}
+#jsddm li ul li a:hover {
+    background: #7F1616
+}
